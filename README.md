@@ -2,86 +2,107 @@
 
 ## Background
 
-Whether financial, political, or social -- data's true power lies in its ability to answer questions definitively. So let's take what you've learned about Python requests, APIs, and JSON traversals to answer a fundamental question: "What's the weather like as we approach the equator?"
+Discovering weather patterns around the world can be interesting study.  We will take a look at certian weather aspects can influence different parts of the world. 
 
-Now, we know what you may be thinking: _"Duh. It gets hotter..."_
-
-But, if pressed, how would you **prove** it?
-
-![Equator](Images/equatorsign.png)
-
-### Before You Begin
-
-1. Create a new repository for this project called `python-api-challenge`. **Do not add this homework to an existing repository**.
-
-2. Clone the new repository to your computer.
-
-3. Inside your local git repository, create a directory for both of the Python Challenges. Use a folder name that corresponds to the challenges, such as: **WeatherPy**.
-
-4. Inside the folder you just created, add new files called `WeatherPy.ipynb` and `VacationPy.ipynb`. These will be the main scripts to run for each analysis.
-
-5. Push the above changes to GitHub.
+![](2020-12-16-22-31-34.png)
 
 ## Part I - WeatherPy
 
-In this example, you'll be creating a Python script to visualize the weather of 500+ cities across the world of varying distance from the equator. To accomplish this, you'll be utilizing a [simple Python library](https://pypi.python.org/pypi/citipy), the [OpenWeatherMap API](https://openweathermap.org/api), and a little common sense to create a representative model of weather across world cities.
+Top 3 Observations: 
+1. The Latitude vs. Temperature plot did not behave in the way that I expected, as you move north of the equator from latitude of 0 to 40 there is actually a linear decrease in temperature from 35 degrees F to -60 degrees F from 20 degrees latitude to around 80 degrees latitude.
 
-The first requirement is to create a series of scatter plots to showcase the following relationships:
+2. Wind speed, humidity and cloudiness show very little to no correlation to latitude.
 
-* Temperature (F) vs. Latitude
-* Humidity (%) vs. Latitude
-* Cloudiness (%) vs. Latitude
-* Wind Speed (mph) vs. Latitude
+3. In the Northern Hemisphere the linear regression has and r-squared value of -0.87, indicating there is a strong negative linear relationship between decreasing latitude and decreasing temperature in the Northern Hemisphere. This is not the case in the Southern Hemisphere.
 
-After each plot, add a sentence or two explaining what the code is analyzing.
 
-The second requirement is to run linear regression on each relationship. This time, separate the plots into Northern Hemisphere (greater than or equal to 0 degrees latitude) and Southern Hemisphere (less than 0 degrees latitude):
+Temperature vs. Latitude
 
-* Northern Hemisphere - Temperature (F) vs. Latitude
-* Southern Hemisphere - Temperature (F) vs. Latitude
-* Northern Hemisphere - Humidity (%) vs. Latitude
-* Southern Hemisphere - Humidity (%) vs. Latitude
-* Northern Hemisphere - Cloudiness (%) vs. Latitude
-* Southern Hemisphere - Cloudiness (%) vs. Latitude
-* Northern Hemisphere - Wind Speed (mph) vs. Latitude
-* Southern Hemisphere - Wind Speed (mph) vs. Latitude
+![](2020-12-16-22-20-01.png)
 
-After each pair of plots, take the time to explain what the linear regression is modeling. For example, describe any relationships you notice and any other analysis you may have.
+Observation - The Latitude vs. Max Temperature plot is interesting. As you move north of the equator from a latitude of 0 to a latitude of 40 you see what appears to be a linear decrease in temperature from 35 degrees to -60 degrees from 20 degrees latitude to around 80 degrees latitude.
 
-Your final notebook must:
+Humidity vs. Latitude
 
-* Randomly select **at least** 500 unique (non-repeat) cities based on latitude and longitude.
-* Perform a weather check on each of the cities using a series of successive API calls.
-* Include a print log of each city as it's being processed with the city number and city name.
-* Save a CSV of all retrieved data and a PNG image for each scatter plot.
+![](2020-12-16-22-21-14.png)
+
+Observation - The Latitude vs. Humidity plot does not seem to have a strong correlation to latitude. It appears more cities have a humidity above 60% than a humidity below 60%.
+
+Cloudiness vs. Latitude
+
+![](2020-12-16-22-22-23.png)
+
+The Latitude vs. Cloudiness plot does not seem to have any correlation to latitude. Most areas are concentrated either at 100% or at 0%.
+
+Wind Speed (mph) vs. Latitude
+
+![](2020-12-16-22-24-48.png)
+
+The Latitude vs. Wind Speed scatterplot suggests there is no correlation between Wind Speed and Latitude. The majority of the wind speed is between 0 and 10%.
+
+
+Northern Hemisphere - Temperature (F) vs. Latitude
+
+![](2020-12-16-22-26-26.png)
+
+In the Northern Hemisphere the linear regression has and r-squared value of -0.87, indicating there is a strong negative linear relationship between decreasing latitude and decreasing temperature in the Northern Hemisphere.
+
+
+Southern Hemisphere - Temperature (F) vs. Latitude
+
+![](2020-12-16-22-27-20.png)
+
+In the Southern Hemisphere there is a weaker relationship between temperature and latitude especially when compared to the Northern Hemisphere, with an r-squared value of 0.52. This means the linear curve fit can only account for 52% of the variance seen in the data.
+
+
+Northern Hemisphere - Humidity (%) vs. Latitude
+
+![](2020-12-16-22-28-21.png)
+
+There ia a very weak relationship between latitude and humidity in the Northern Hemisphere with an r-squared value of 0.33. This means the linear curve fit can only account for 33% of the variance seen in the data, leaving the vast majority of the variance unexplained by the equation of the line y = 0.33x + 62.32.
+
+
+Southern Hemisphere - Humidity (%) vs. Latitude
+
+![](2020-12-16-22-32-09.png)
+
+There ia a very weak relationship between latitude and humidity in the Southern Hemisphere with an r-squared value of 0.21. This means the linear curve fit can only account for 21% of the variance seen in the data, leaving the vast majority of the variance unexplained by the equation of the line y = 0.3x + 78.04.
+
+
+Northern Hemisphere - Cloudiness (%) vs. Latitude
+
+![](2020-12-16-22-34-07.png)
+
+There ia a very weak relationship between latitude and cloudiness in the Northern Hemisphere with an r-squared value of 0.27. This means the linear curve fit can only account for 27% of the variance seen in the data, leaving the vast majority of the variance unexplained by the equation of the line y = 0.53x + 37.27.
+
+
+Southern Hemisphere - Cloudiness (%) vs. Latitude
+
+![](2020-12-16-22-35-16.png)
+
+There ia a very weak relationship between latitude and cloudiness in the Southern Hemisphere with an r-squared value of 0.25. This means the linear curve fit can only account for 25% of the variance seen in the data, leaving the vast majority of the variance unexplained by the equation of the line y = 0.72x + 64.44.
+
+
+Northern Hemisphere - Wind Speed (mph) vs. Latitude
+
+![](2020-12-16-22-36-03.png)
+
+There ia a very weak relationship between latitude and wind speed in the Northern Hemisphere with an r-squared value of 0.2. This means the linear curve fit can only account for 20% of the variance seen in the data, leaving the vast majority of the variance unexplained by the equation of the line y = 0.03x + 2.64.
+
+
+Southern Hemisphere - Wind Speed (mph) vs. Latitude
+
+![](2020-12-16-22-36-43.png)
+
+There ia a very weak relationship between latitude and wind speed in the Southern Hemisphere with an r-squared value of -0.32. This means the linear curve fit can only account for -32% of the variance seen in the data.
 
 ### Part II - VacationPy
-
-Now let's use your skills in working with weather data to plan future vacations. Use jupyter-gmaps and the Google Places API for this part of the assignment.
-
-* **Note:** Remember that any API usage beyond the $200 credit will be charged to your personal account. You can set quotas and limits to your daily requests to be sure you can't be charged. Check out [Google Maps Platform Billing](https://developers.google.com/maps/billing/gmp-billing#monitor-and-restrict-consumption) and [Manage your cost of use](https://developers.google.com/maps/documentation/javascript/usage-and-billing#set-caps) for more information.
-
-* **Note:** if you having trouble displaying the maps, try running `jupyter nbextension enable --py gmaps` in your environment and retry.
-
-To complete this part of the assignment,you will need to do the following:
 
 * Create a heat map that displays the humidity for every city from Part I.
 
   ![heatmap](Images/heatmap.png)
 
-* Narrow down the DataFrame to find your ideal weather condition. For example:
-
-  * A max temperature lower than 80 degrees but higher than 70.
-
-  * Wind speed less than 10 mph.
-
-  * Zero cloudiness.
-
-  * Drop any rows that don't contain all three conditions. You want to be sure the weather is ideal.
-
-  * **Note:** Feel free to adjust to your specifications but be sure to limit the number of rows returned by your API requests to a reasonable number.
-
-* Using Google Places API to find the first hotel for each city located within 5000 meters of your coordinates.
+*
 
 * Plot the hotels on top of the humidity heatmap with each pin containing the **Hotel Name**, **City**, and **Country**.
 
